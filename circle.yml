@@ -11,9 +11,4 @@ jobs:
           brew config
           mkdir -p $(brew --repo)/Library/Taps/linuxkit
           ln -s ~/homebrew-linuxkit $(brew --repo)/Library/Taps/linuxkit/homebrew-linuxkit
-          for pkg in "linuxkit" "moby" "rtf"; do
-              brew install --HEAD $pkg --verbose
-              # Skip audit until we have a stable download
-              # brew audit $pkg --strict
-              brew test $pkg
-          done
+          ./test.sh
